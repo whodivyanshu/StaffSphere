@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+    padding: 20px;
+}
+.btn{
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    right: 50px;
+    bottom: 40px;
+    font-size: 40px;
+}
