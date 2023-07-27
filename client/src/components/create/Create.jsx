@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Styles from "./create.module.css"
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+
 
 
 
@@ -20,13 +21,46 @@ const style = {
 
 
 const Create = ({ onClose }) => {
+
+    const [name, setname] = useState("");
+    const [age, setage] = useState("");
+    const [department, setdepartment] = useState("");
+    const [status, setstatus] = useState("");
+    const [address, setaddress] = useState("");
+
+
     return (
         <Box classname={Styles.container} sx={style}>
             <h1>Create</h1>
+            <div className={Styles.inputs}>
+
             <label htmlFor="name">Name :  </label>
-            <input type="text" id='name' />
+            <input onChange={(e)=>setname(e.target.value)}  value={name} type="text" id='name' />
+            </div>
+            <div className={Styles.inputs}>
+
+            <label htmlFor="age">Age :  </label>
+            <input value={age} onChange={(e)=>setage(e.target.value)}  type="number" id='age' />
+            </div>
+            <div className={Styles.inputs}>
+
+            <label htmlFor="address">Address :  </label>
+            <input value={address} onChange={(e)=>setaddress(e.target.value)} type="text" id='address' />
+            </div>
+            <div className={Styles.inputs}>
+
+            <label htmlFor="status">Status :  </label>
+            <input value={status} onChange={(e)=>setstatus(e.target.value)} type="text" id='status' />
+            </div>
+            <div className={Styles.inputs}>
+
+            <label htmlFor="department">Department :  </label>
+            <input value={department} onChange={(e)=>setdepartment(e.target.value)} type="text" id='department' />
+            </div>
+
             <hr className={Styles.hr} />
-            <div >
+
+            <div className={Styles.btns} >
 
             <Button variant='contained' onClick={onClose} >Close</Button>
             <Button variant='contained' >Save</Button>
