@@ -3,10 +3,6 @@ import Styles from "./create.module.css"
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-
-
-
-
 const style = {
     position: 'absolute',
     top: '50%',
@@ -20,8 +16,12 @@ const style = {
 };
 
 
-const Create = ({ onClose }) => {
 
+
+const Create = ({ onClose}) => {
+    
+    
+    
     const [name, setname] = useState("");
     const [age, setage] = useState("");
     const [department, setdepartment] = useState("");
@@ -29,8 +29,48 @@ const Create = ({ onClose }) => {
     const [address, setaddress] = useState("");
 
 
-    return (
-        <Box classname={Styles.container} sx={style}>
+    const handleSubmit =async () => {
+        const formData = {
+            name,
+            age,
+            department,
+            status,
+            address
+        }
+        try{
+            if(name==="" || age==="" || department==="" || status==="" || address===""){
+                alert("Please fill all the fields");
+                return;
+            }
+            
+            const response = await fetch("http://localhost:4000/insert",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(formData)
+            
+                
+    
+            });
+
+            
+        }
+        catch(err){
+            console.log(err);
+        }
+        window.location.reload();
+    
+    }
+
+
+
+
+
+
+
+    return (    
+        <Box className={Styles.container}  sx={style}>
             <h1>Create</h1>
             <div className={Styles.inputs}>
 
@@ -63,7 +103,7 @@ const Create = ({ onClose }) => {
             <div className={Styles.btns} >
 
             <Button variant='contained' onClick={onClose} >Close</Button>
-            <Button variant='contained' >Save</Button>
+            <Button variant='contained'  onClick={handleSubmit} >Save</Button>
             </div>
         </Box>
     )

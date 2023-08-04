@@ -1,7 +1,7 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
+const app = express();
 app.use(express.json());
 app.use(cors());
 
@@ -29,6 +29,31 @@ app.get("/getData", async(req,res)=>{
 
 })
 
+
+app.post("/insert", async(req,res)=>{
+    const name = req.body.name;
+    const age = req.body.age;
+    const address = req.body.address;
+    const department = req.body.department;
+    const status = req.body.status;
+
+    const employee = new Employee({
+        name: name,
+        age: age,
+        address: address,
+        department: department,
+        status: status
+    });
+
+    try{
+        await employee.save();
+        res.send("inserted data");
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+)
 
 
 
