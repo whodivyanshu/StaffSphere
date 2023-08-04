@@ -56,6 +56,25 @@ app.post("/insert", async(req,res)=>{
 )
 
 
+// app.put("/update", async(req,res)=>{
+//     const id = req.body.id;
+//     try{
+//         await Employee.findById(id, (err, updatedEmployee)=>{
+//             updatedEmployee.name = req.body.name;
+//             updatedEmployee.age = req.body.age;
+//             updatedEmployee.address = req.body.address;
+//             updatedEmployee.department = req.body.department;
+//             updatedEmployee.status = req.body.status;
+//             updatedEmployee.save();
+//             res.send("updated");
+//         })
+//     }
+//     catch(err){
+//         console.log(err);
+//     }
+// })
+
+
 
 
 app.listen(4000, ()=>{

@@ -2,7 +2,10 @@
 import React, {useState} from 'react'
 import Styles from "./employeeData.module.css";
 import { Box, Button } from '@mui/material';
-
+import Map from '../map/Map';
+import { CircleMarker, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import "leaflet/dist/leaflet.css"
+import icon from "leaflet"
 
 const EmployeeData = (props) => {
   const style = {
@@ -17,6 +20,10 @@ const EmployeeData = (props) => {
     p: 4,
 };
 
+const iconn = icon.icon({
+  iconUrl: "https://img.icons8.com/ios-filled/50/FF0000/visit.png",
+  iconSize: [30, 30]
+})
 
 const [Name, setName] = useState(props.name)
 const [updateDisable, setUpdateDisable] = useState(true);
@@ -24,9 +31,10 @@ const [Age, setAge] = useState(props.age)
 const [Department, setDepartment] = useState(props.department)
 const [Status, setStatus] = useState(props.status)
 const [Address, setAddress] = useState(props.address)
-const [id, setId] = useState("")
+const [id, setId] = useState(props.idd)
 // const [showEdit, setShowEdit] = useState(false)
 // const [showDelete, setShowDelete] = useState(false)
+
 
 
   return (
@@ -96,12 +104,25 @@ const [id, setId] = useState("")
             <div className={Styles.btns} >
 
             <Button variant='contained' onClick={props.onClose} >Close</Button>
-            <Button variant='contained' disabled = {updateDisable} >Update</Button>
+            <Button variant='contained' disabled = {updateDisable}  >Update</Button>
             </div>
             </div>
 
             <div className={Styles.right} >
               <h1>Location</h1>
+              <div className={Styles.location} >
+              <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false} style={{width: "100%", height: "100%"}} >
+  <TileLayer 
+    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=O3hyGb236OQ11l0lXp7d"
+  />
+  <Marker position={[51.505, -0.09]} icon={iconn} >
+    <Popup>
+      A pretty CSS3 popup. <br /> Easily customizable.
+    </Popup>
+  </Marker>
+</MapContainer>
+              </div>
             </div>
         </Box>
 

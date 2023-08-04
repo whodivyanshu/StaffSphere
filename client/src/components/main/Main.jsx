@@ -37,7 +37,23 @@ const Main = () => {
       SetshowData(false);
     }
 
-
+    const stylee = {
+      width: '60px',
+      height: '60px',
+      borderRadius: '50%',
+      fontSize: '40px',
+      fontWeight: 'bold',
+      color: 'white',
+      // backgroundColor: 'red',
+      boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.75)',
+      border: 'none',
+      outline: 'none',
+      cursor: 'pointer',
+      position: 'fixed',
+      bottom: '30px',
+      right: '30px',
+      zIndex: '1000'
+    }
 
 
 
@@ -49,12 +65,15 @@ const Main = () => {
 
 
 
-            <Button className={Styles.btn} onClick={handleCreate} variant='contained' >+</Button>
             {showCreate && <Create onClose={handleClose}   />}
-            {showData && <EmployeeData  idd={empid} onClose = {handleDataClose} name = {empData[index].name}  
+            {showData && <EmployeeData  idd={empData[index].id} onClose = {handleDataClose} name = {empData[index].name}  
             age = {empData[index].age} address = {empData[index].address} status = {empData[index].status} department = {empData[index].department}
             
             />}
+            <div className={Styles.plusbtn} >
+
+            <Button sx={stylee} className={Styles.btn} onClick={handleCreate} variant='contained' >+</Button>
+            </div>
 
     </div>
   )
