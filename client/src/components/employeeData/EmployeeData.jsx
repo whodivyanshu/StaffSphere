@@ -32,8 +32,8 @@ const [Department, setDepartment] = useState(props.department)
 const [Status, setStatus] = useState(props.status)
 const [Address, setAddress] = useState(props.address)
 const [id, setId] = useState(props.idd)
-// const [showEdit, setShowEdit] = useState(false)
-// const [showDelete, setShowDelete] = useState(false)
+
+
 
 
 
