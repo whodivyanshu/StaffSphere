@@ -1,3 +1,4 @@
+"use client"
 import React, {useState} from 'react'
 import Styles from "./create.module.css"
 import Box from '@mui/material/Box';
