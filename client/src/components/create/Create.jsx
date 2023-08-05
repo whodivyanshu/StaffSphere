@@ -1,12 +1,12 @@
 "use client"
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Styles from "./create.module.css"
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { useRouter } from 'next/navigation';
 
 const style = {
-    position: 'absolute',
+    position: 'fixed',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
@@ -20,10 +20,10 @@ const style = {
 
 
 
-const Create = ({ onClose}) => {
+const Create = ({ onClose }) => {
     const router = useRouter();
-    
-    
+
+
     const [name, setname] = useState("");
     const [age, setage] = useState("");
     const [department, setdepartment] = useState("");
@@ -31,7 +31,7 @@ const Create = ({ onClose}) => {
     const [address, setaddress] = useState("");
 
 
-    const handleSubmit =async () => {
+    const handleSubmit = async () => {
         const formData = {
             name,
             age,
@@ -39,31 +39,30 @@ const Create = ({ onClose}) => {
             status,
             address
         }
-        try{
-            if(name==="" || age==="" || department==="" || status==="" || address===""){
+        try {
+            if (name === "" || age === "" || department === "" || status === "" || address === "") {
                 alert("Please fill all the fields");
                 return;
             }
-            
-            const response = await fetch("https://divyanshuweb.onrender.com/insert",{
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
+
+            const response = await fetch("https://divyanshuweb.onrender.com/insert", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
                 },
-                body:JSON.stringify(formData)
-            
-                
-    
+                body: JSON.stringify(formData)
+
+
+
             });
 
-            
+
         }
-        catch(err){
+        catch (err) {
             console.log(err);
         }
 
-        
-    location.reload();
+
     }
 
 
@@ -72,41 +71,41 @@ const Create = ({ onClose}) => {
 
 
 
-    return (    
-        <Box className={Styles.container}  sx={style}>
+    return (
+        <Box className={Styles.container} sx={style}>
             <h1>Create</h1>
             <div className={Styles.inputs}>
 
-            <label htmlFor="name">Name :  </label>
-            <input onChange={(e)=>setname(e.target.value)}  value={name} type="text" id='name' />
+                <label htmlFor="name">Name :  </label>
+                <input onChange={(e) => setname(e.target.value)} value={name} type="text" id='name' />
             </div>
             <div className={Styles.inputs}>
 
-            <label htmlFor="age">Age :  </label>
-            <input value={age} onChange={(e)=>setage(e.target.value)}  type="number" id='age' />
+                <label htmlFor="age">Age :  </label>
+                <input value={age} onChange={(e) => setage(e.target.value)} type="number" id='age' />
             </div>
             <div className={Styles.inputs}>
 
-            <label htmlFor="address">Address :  </label>
-            <input value={address} onChange={(e)=>setaddress(e.target.value)} type="text" id='address' />
+                <label htmlFor="address">Address :  </label>
+                <input value={address} onChange={(e) => setaddress(e.target.value)} type="text" id='address' />
             </div>
             <div className={Styles.inputs}>
 
-            <label htmlFor="status">Status :  </label>
-            <input value={status} onChange={(e)=>setstatus(e.target.value)} type="text" id='status' />
+                <label htmlFor="status">Status :  </label>
+                <input value={status} onChange={(e) => setstatus(e.target.value)} type="text" id='status' />
             </div>
             <div className={Styles.inputs}>
 
-            <label htmlFor="department">Department :  </label>
-            <input value={department} onChange={(e)=>setdepartment(e.target.value)} type="text" id='department' />
+                <label htmlFor="department">Department :  </label>
+                <input value={department} onChange={(e) => setdepartment(e.target.value)} type="text" id='department' />
             </div>
 
             <hr className={Styles.hr} />
 
             <div className={Styles.btns} >
 
-            <Button variant='contained' onClick={onClose} >Close</Button>
-            <Button variant='contained'  onClick={handleSubmit}  >Save</Button>
+                <Button variant='contained' onClick={onClose} >Close</Button>
+                <Button variant='contained' onClick={handleSubmit}  >Save</Button>
             </div>
         </Box>
     )
