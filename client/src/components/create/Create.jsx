@@ -1,7 +1,9 @@
+"use client"
 import React, {useState} from 'react'
 import Styles from "./create.module.css"
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { useRouter } from 'next/navigation';
 
 const style = {
     position: 'absolute',
@@ -19,7 +21,7 @@ const style = {
 
 
 const Create = ({ onClose}) => {
-    
+    const router = useRouter();
     
     
     const [name, setname] = useState("");
@@ -59,8 +61,9 @@ const Create = ({ onClose}) => {
         catch(err){
             console.log(err);
         }
-        window.location.reload();
-    
+
+        
+    location.reload();
     }
 
 
@@ -103,7 +106,7 @@ const Create = ({ onClose}) => {
             <div className={Styles.btns} >
 
             <Button variant='contained' onClick={onClose} >Close</Button>
-            <Button variant='contained'  onClick={handleSubmit} >Save</Button>
+            <Button variant='contained'  onClick={handleSubmit}  >Save</Button>
             </div>
         </Box>
     )

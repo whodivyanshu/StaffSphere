@@ -6,12 +6,16 @@ import Card from '../card/Card';
 import Create from '../create/Create';
 import Button from '@mui/material/Button';
 import EmployeeData from '../employeeData/EmployeeData';
+import { useRouter } from 'next/navigation';
+
 
 const Main = () => {
+  
   const [showCreate, setshowCreate] = useState(false);
-      const empData = useContext(employeeContext);
-    const [showData, SetshowData] = useState(false);
-    const [empid, setEmpid] = useState("");
+  const empData = useContext(employeeContext);
+  const [showData, SetshowData] = useState(false);
+  const [empid, setEmpid] = useState("");
+  const router = useRouter();
 
 
     const handleCreate = () => {
@@ -36,6 +40,8 @@ const Main = () => {
     const handleDataClose = ()=>{
       SetshowData(false);
     }
+
+  
 
     const stylee = {
       width: '60px',
