@@ -43,7 +43,7 @@ const Create = ({ onClose}) => {
                 return;
             }
             
-            const response = await fetch("http://localhost:4000/insert",{
+            const response = await fetch("https://divyanshuweb.onrender.com/insert",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"

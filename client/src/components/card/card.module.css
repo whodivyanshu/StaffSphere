@@ -6,6 +6,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: rgb(82, 186, 255);
+    color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     transition: all 0.3s ease-in-out;
 }

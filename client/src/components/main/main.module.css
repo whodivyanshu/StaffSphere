@@ -6,12 +6,26 @@
     justify-content: baseline;
     padding: 20px;
 }
-.btn{
+/* .btn{
     border-radius: 50%;
     height: 60px;
     width: 60px;
-    position: fixed;
+    position: absolute;
+    z-index: -1;
     right: 50px;
     bottom: 40px;
     font-size: 40px;
+} */
+
+.main{
+    position: relative;
+}
+
+
+.plusbtn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    
+
 }

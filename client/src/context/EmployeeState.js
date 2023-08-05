@@ -8,7 +8,7 @@ const EmployeeState = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch("http://localhost:4000/getData");
+            const res = await fetch("https://divyanshuweb.onrender.com/getData");
             const data = await res.json();
             setEmpData(data);
         }
